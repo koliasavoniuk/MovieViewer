@@ -8,6 +8,23 @@
 
 import Foundation
 
-//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxN2JiYTRiZDE0NzQzMDcwNGI2ZWFjYTNiNDcwOWE2NiIsInN1YiI6IjViM2E0ODlkYzNhMzY4MGQ3MjAwNmVlNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-1TiUWBlWT7A-iBpcDlz1m-fIvY2cLYideR5wXq1XQs
+struct NetworkHandler {
+    static let defaultURL = "https://api.themoviedb.org/3"
+    static let APIKey = "17bba4bd147430704b6eaca3b4709a66"
+    
+    static func endpointURL(endpoint: Endpoint) -> URL {
+        return URL(string: (defaultURL + endpoint.rawValue))!
+    }
+    
+    static func endpointString(endpoint: Endpoint) -> String {
+        return defaultURL + endpoint.rawValue
+    }
+}
 
-// 17bba4bd147430704b6eaca3b4709a66
+enum Endpoint: String {
+    case popularMovies = "/movie/popular?"
+}
+
+struct Parameters {
+    static let apiKey = "api_key"
+}
