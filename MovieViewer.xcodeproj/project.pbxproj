@@ -10,6 +10,7 @@
 		6FD7DFA9F1417E8A639A7BC2 /* Pods_MovieViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9776163129ACDA443418CAB /* Pods_MovieViewer.framework */; };
 		7640C13220ED263B00F3C7B9 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C13120ED263B00F3C7B9 /* MoviesModel.swift */; };
 		76444A4220EF68960081B175 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4120EF68960081B175 /* NetworkProvider.swift */; };
+		76444A4520EF80A10081B175 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4420EF80A10081B175 /* RootView.swift */; };
 		76996C1D20EA7C0300C859E6 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76996C1C20EA7C0300C859E6 /* CommonConstants.swift */; };
 		76996C2120EA7EDF00C859E6 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76996C2020EA7EDF00C859E6 /* ObservableObject.swift */; };
 		76DA0BA020EA736C0040312F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DA0B9F20EA736C0040312F /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		42900F2494BEF11F928A975D /* Pods-MovieViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieViewer/Pods-MovieViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		7640C13120ED263B00F3C7B9 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		76444A4120EF68960081B175 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		76444A4420EF80A10081B175 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		76996C1C20EA7C0300C859E6 /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		76996C2020EA7EDF00C859E6 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		76DA0B9C20EA736C0040312F /* MovieViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,14 @@
 				7640C13120ED263B00F3C7B9 /* MoviesModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		76444A4320EF80890081B175 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				76444A4420EF80A10081B175 /* RootView.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		76996C1B20EA7BF100C859E6 /* Constants */ = {
@@ -143,6 +153,7 @@
 		76DA0BB420EA768F0040312F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				76444A4320EF80890081B175 /* Protocols */,
 				7640C13020ECE54600F3C7B9 /* Models */,
 				76996C1E20EA7EB200C859E6 /* Libs */,
 				76996C1B20EA7BF100C859E6 /* Constants */,
@@ -302,6 +313,7 @@
 				76DA0BC420EA77570040312F /* NetworkHandler.swift in Sources */,
 				76996C2120EA7EDF00C859E6 /* ObservableObject.swift in Sources */,
 				76444A4220EF68960081B175 /* NetworkProvider.swift in Sources */,
+				76444A4520EF80A10081B175 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MoviesListViewController: UIViewController, ObservableObjectDelegate {
+class MoviesListViewController: UIViewController, ObservableObjectDelegate, RootView {
+    // MARK: - RootView
+    typealias ViewType = MoviesListView
     
     // MARK: - Outlets
-    @IBOutlet var rootView: MoviesListView!
     private var networkProvider: NetworkProvider<MoviesList>?
     
     // MARK: - ViewController Lifecycle
