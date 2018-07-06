@@ -12,22 +12,28 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate {
     
     // MARK: - Outlets
     @IBOutlet var rootView: MoviesListView!
-    private var getPopularFilmsProvider: PopularFilmsProvider?
+    private var networkProvider: NetworkProvider<MoviesList>?
     
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureView()
-        
-        self.getPopularFilmsProvider = PopularFilmsProvider()
-        self.getPopularFilmsProvider?.delegate = self
-        self.getPopularFilmsProvider?.execute()
+        self.startNetworkProvider()
     }
 
     // MARK: - Private
     private func configureView() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func startNetworkProvider() {
+        let url = URL(string: NetworkHandler.endpointString(endpoint: .popularMovies)) ?? URL(fileURLWithPath: "")
+        let parameters = [Parameters.apiKey: NetworkHandler.APIKey]
+        
+        self.networkProvider = NetworkProvider(with: url, parameters: parameters)
+        self.networkProvider?.delegate = self
+        self.networkProvider?.execute()
     }
     
     // MARK: - <ObservableObjectDelegate>

@@ -8,7 +8,15 @@
 
 import Foundation
 
+// MARK: - UI Titles
+
 enum UITitles: String {
     case findButton = "Find"
     case textFieldPlaceholder = "Enter film name here"
+}
+
+// MARK: - Different Strings
+
+enum Strings: String {
+    case cannot_parse_json = "Cannot parse JSON"
 }

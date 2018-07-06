@@ -13,7 +13,7 @@ struct NetworkHandler {
     static let APIKey = "17bba4bd147430704b6eaca3b4709a66"
     
     static func endpointURL(endpoint: Endpoint) -> URL {
-        return URL(string: (defaultURL + endpoint.rawValue))!
+        return URL(string: (defaultURL + endpoint.rawValue)) ?? URL(fileURLWithPath: "")
     }
     
     static func endpointString(endpoint: Endpoint) -> String {
