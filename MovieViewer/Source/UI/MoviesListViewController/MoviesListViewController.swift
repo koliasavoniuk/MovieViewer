@@ -13,7 +13,7 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
     typealias ViewType = MoviesListView
     
     // MARK: - Outlets
-    private var networkProvider: NetworkProvider<MoviesList>?
+    private var getMoviesProvider: NetworkProvider<MoviesList>?
     
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
@@ -32,19 +32,44 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
         let url = URL(string: NetworkHandler.endpointString(endpoint: .popularMovies)) ?? URL(fileURLWithPath: "")
         let parameters = [Parameters.apiKey: NetworkHandler.APIKey]
         
-        self.networkProvider = NetworkProvider(with: url, parameters: parameters)
-        self.networkProvider?.delegate = self
-        self.networkProvider?.execute()
+        self.getMoviesProvider = NetworkProvider(with: url, parameters: parameters)
+        self.getMoviesProvider?.delegate = self
+        DispatchQueue.global(qos: .background).async {
+            self.getMoviesProvider?.execute()
+        }
     }
     
-    // MARK: - <ObservableObjectDelegate>
+    // MARK: - ObservableObjectDelegate
     func modelWillLoad(observableObject: AnyObject) {
     }
     
     func modelDidLoad(observableObject: AnyObject) {
-
+        if observableObject === self.getMoviesProvider {
+            DispatchQueue.main.async {
+                self.rootView?.collectionView.reloadData()
+            }
+        }
     }
     
     func modelFailLoading(observableObject: AnyObject, error: String) {
+        
     }
+}
+
+extension MoviesListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.getMoviesProvider?.result?.movies.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:MovieCollectionViewCell? = cast(collectionView.dequeueReusableCell(withReuseIdentifier: toString(MovieCollectionViewCell.self), for: indexPath))
+        
+        self.getMoviesProvider?.result.map {
+            cell?.fill(with: $0.movies[indexPath.row])
+        }
+        
+        return cell ?? UICollectionViewCell()
+    }
+    
+    
 }

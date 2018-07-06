@@ -34,29 +34,39 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kTV-Bm-qeq">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iZd-e7-MUE">
                     <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ebp-Ca-lsA">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="82M-xH-k3f"/>
+                        <outlet property="delegate" destination="-1" id="VOc-Py-ChF"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E2g-BB-hLd" firstAttribute="height" secondItem="6pT-oR-sp1" secondAttribute="height" id="52K-ff-Jn6"/>
                 <constraint firstItem="6pT-oR-sp1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5hb-PM-HvQ"/>
                 <constraint firstItem="E2g-BB-hLd" firstAttribute="leading" secondItem="6pT-oR-sp1" secondAttribute="trailing" id="HmE-O9-wfk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kTV-Bm-qeq" secondAttribute="bottom" id="UN5-Af-OXi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iZd-e7-MUE" secondAttribute="bottom" id="LgA-jd-sY6"/>
+                <constraint firstItem="iZd-e7-MUE" firstAttribute="top" secondItem="6pT-oR-sp1" secondAttribute="bottom" id="eF5-Pa-kv3"/>
                 <constraint firstItem="6pT-oR-sp1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="gUg-66-HLx"/>
-                <constraint firstItem="kTV-Bm-qeq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i2T-hx-jzH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iZd-e7-MUE" secondAttribute="trailing" id="j22-sN-Ply"/>
+                <constraint firstItem="iZd-e7-MUE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kqH-p1-xwY"/>
                 <constraint firstItem="E2g-BB-hLd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lZI-zN-9UX"/>
-                <constraint firstItem="kTV-Bm-qeq" firstAttribute="top" secondItem="6pT-oR-sp1" secondAttribute="bottom" id="pTf-LP-cVr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kTV-Bm-qeq" secondAttribute="trailing" id="rcc-Gb-eEY"/>
                 <constraint firstAttribute="trailing" secondItem="E2g-BB-hLd" secondAttribute="trailing" constant="10" id="yf3-sj-w6A"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>
+                <outlet property="collectionView" destination="iZd-e7-MUE" id="dZY-tm-zhK"/>
                 <outlet property="findButton" destination="E2g-BB-hLd" id="p8Q-DX-QQQ"/>
                 <outlet property="findTextField" destination="6pT-oR-sp1" id="dAk-jM-bfI"/>
-                <outlet property="tableView" destination="kTV-Bm-qeq" id="wWU-fV-qAT"/>
             </connections>
         </view>
     </objects>

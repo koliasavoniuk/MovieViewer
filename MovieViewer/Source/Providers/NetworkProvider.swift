@@ -30,13 +30,15 @@ class NetworkProvider<ModelType>: ObservableObject
             )
             .validate()
             .responseJSON { (response) -> Void in
-                switch response.result {
-                case .success(_):
-                    response.data.map {
-                        self.parse(with: $0)
+                DispatchQueue.global(qos: .background).async {
+                    switch response.result {
+                    case .success(_):
+                        response.data.map {
+                            self.parse(with: $0)
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
                     }
-                case .failure(let error):
-                    print(error.localizedDescription)
                 }
         }
     }
