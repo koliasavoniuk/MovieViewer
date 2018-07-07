@@ -19,4 +19,5 @@ enum UITitles: String {
 
 enum Strings: String {
     case cannot_parse_json = "Cannot parse JSON"
+    case whoops = "Whoops, something went wrong"
 }

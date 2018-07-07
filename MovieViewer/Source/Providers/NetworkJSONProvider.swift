@@ -1,5 +1,5 @@
 //
-//  NetworkProvider.swift
+//  NetworkJSONProvider.swift
 //  MovieViewer
 //
 //  Created by Mykola Savoniuk on 7/6/18.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class NetworkProvider<ModelType>: ObservableObject
+class NetworkJSONProvider<ModelType>: ObservableObject
     where ModelType: Decodable
 {
     var result: ModelType?

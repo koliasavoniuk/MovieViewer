@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6FD7DFA9F1417E8A639A7BC2 /* Pods_MovieViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9776163129ACDA443418CAB /* Pods_MovieViewer.framework */; };
 		7640C13220ED263B00F3C7B9 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C13120ED263B00F3C7B9 /* MoviesModel.swift */; };
-		76444A4220EF68960081B175 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4120EF68960081B175 /* NetworkProvider.swift */; };
+		76444A4220EF68960081B175 /* NetworkJSONProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4120EF68960081B175 /* NetworkJSONProvider.swift */; };
 		76444A4520EF80A10081B175 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4420EF80A10081B175 /* RootView.swift */; };
 		76444A4820EF82C30081B175 /* FoundationKitFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4720EF82C30081B175 /* FoundationKitFunctions.swift */; };
 		76444A4C20EF83C30081B175 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76444A4A20EF83C30081B175 /* MovieCollectionViewCell.swift */; };
@@ -34,7 +34,7 @@
 		05377D326D5750D8C13B346F /* Pods-MovieViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieViewer/Pods-MovieViewer.release.xcconfig"; sourceTree = "<group>"; };
 		42900F2494BEF11F928A975D /* Pods-MovieViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieViewer/Pods-MovieViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		7640C13120ED263B00F3C7B9 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
-		76444A4120EF68960081B175 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		76444A4120EF68960081B175 /* NetworkJSONProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkJSONProvider.swift; sourceTree = "<group>"; };
 		76444A4420EF80A10081B175 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		76444A4720EF82C30081B175 /* FoundationKitFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationKitFunctions.swift; sourceTree = "<group>"; };
 		76444A4A20EF83C30081B175 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				76DA0BC320EA77570040312F /* NetworkHandler.swift */,
-				76444A4120EF68960081B175 /* NetworkProvider.swift */,
+				76444A4120EF68960081B175 /* NetworkJSONProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				76444A4820EF82C30081B175 /* FoundationKitFunctions.swift in Sources */,
 				76DA0BC420EA77570040312F /* NetworkHandler.swift in Sources */,
 				76996C2120EA7EDF00C859E6 /* ObservableObject.swift in Sources */,
-				76444A4220EF68960081B175 /* NetworkProvider.swift in Sources */,
+				76444A4220EF68960081B175 /* NetworkJSONProvider.swift in Sources */,
 				76444A4520EF80A10081B175 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

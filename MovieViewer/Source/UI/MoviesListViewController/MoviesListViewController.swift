@@ -13,14 +13,19 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
     typealias ViewType = MoviesListView
     
     // MARK: - Outlets
-    private var getMoviesProvider: NetworkProvider<MoviesList>?
+    private var getPopularMoviesProvider: NetworkJSONProvider<MoviesList>?
+    private var moviesList: MoviesList? {
+        didSet {
+            self.rootView?.collectionView.reloadData()
+        }
+    }
     
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.configureView()
-        self.startNetworkProvider()
+        self.startGetPopularMoviesProvider()
     }
 
     // MARK: - Private
@@ -28,26 +33,23 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    private func startNetworkProvider() {
+    private func startGetPopularMoviesProvider() {
         let url = URL(string: NetworkHandler.endpointString(endpoint: .popularMovies)) ?? URL(fileURLWithPath: "")
-        let parameters = [Parameters.apiKey: NetworkHandler.APIKey]
+        let parameters = [Parameters.apiKey:NetworkHandler.APIKey]
         
-        self.getMoviesProvider = NetworkProvider(with: url, parameters: parameters)
-        self.getMoviesProvider?.delegate = self
-        DispatchQueue.global(qos: .background).async {
-            self.getMoviesProvider?.execute()
-        }
+        self.getPopularMoviesProvider = NetworkJSONProvider(with: url, parameters: parameters)
+        self.getPopularMoviesProvider?.delegate = self
+        self.getPopularMoviesProvider?.execute()
     }
+    
     
     // MARK: - ObservableObjectDelegate
     func modelWillLoad(observableObject: AnyObject) {
     }
     
     func modelDidLoad(observableObject: AnyObject) {
-        if observableObject === self.getMoviesProvider {
-            DispatchQueue.main.async {
-                self.rootView?.collectionView.reloadData()
-            }
+        if observableObject === self.getPopularMoviesProvider {
+            self.moviesList = getPopularMoviesProvider?.result
         }
     }
     
@@ -58,13 +60,13 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
 
 extension MoviesListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.getMoviesProvider?.result?.movies.count ?? 0
+        return self.moviesList?.movies.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:MovieCollectionViewCell? = cast(collectionView.dequeueReusableCell(withReuseIdentifier: toString(MovieCollectionViewCell.self), for: indexPath))
         
-        self.getMoviesProvider?.result.map {
+        self.moviesList.map {
             cell?.fill(with: $0.movies[indexPath.row])
         }
         
