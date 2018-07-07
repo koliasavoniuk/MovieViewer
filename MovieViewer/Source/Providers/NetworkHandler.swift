@@ -23,6 +23,7 @@ struct NetworkHandler {
 
 enum Endpoint: String {
     case popularMovies = "/movie/popular?"
+    case posterPath = "https://image.tmdb.org/t/p/w500/"
 }
 
 struct Parameters {

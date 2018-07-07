@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet var filmNameLabel: UILabel!
+    @IBOutlet var posterImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,6 +19,12 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
 
     func fill(with model: Movie) {
+        let posterURL = URL(string: Endpoint.posterPath.rawValue + model.posterPath) ?? URL(fileURLWithPath: "")
         self.filmNameLabel.text = model.title
+        self.posterImageView.sd_setImage(with: posterURL,
+                                         placeholderImage: nil,
+                                         options: .highPriority,
+                                         progress: nil,
+                                         completed: nil)
     }
 }

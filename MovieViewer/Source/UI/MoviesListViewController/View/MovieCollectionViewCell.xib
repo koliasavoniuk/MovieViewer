@@ -25,18 +25,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zid-0e-ixS">
+                        <rect key="frame" x="0.0" y="31" width="373" height="444"/>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.5999458432" green="0.60003471370000006" blue="0.59992641209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Zid-0e-ixS" firstAttribute="top" secondItem="2Iq-Rw-5mr" secondAttribute="bottom" id="0Rh-xV-CfR"/>
                 <constraint firstItem="2Iq-Rw-5mr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1Dq-xc-qPU"/>
                 <constraint firstItem="2Iq-Rw-5mr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="DhF-YK-HoU"/>
                 <constraint firstAttribute="trailing" secondItem="2Iq-Rw-5mr" secondAttribute="trailing" id="NJ9-Ty-phA"/>
+                <constraint firstAttribute="bottom" secondItem="Zid-0e-ixS" secondAttribute="bottom" id="ccI-lY-7Pb"/>
+                <constraint firstAttribute="trailing" secondItem="Zid-0e-ixS" secondAttribute="trailing" id="rel-OL-Hlk"/>
+                <constraint firstItem="Zid-0e-ixS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wBS-eO-LsG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="373" height="475"/>
             <connections>
                 <outlet property="filmNameLabel" destination="2Iq-Rw-5mr" id="E3r-ha-wsH"/>
+                <outlet property="posterImageView" destination="Zid-0e-ixS" id="RgC-U7-kop"/>
             </connections>
             <point key="canvasLocation" x="-183.5" y="-84.5"/>
         </collectionViewCell>
