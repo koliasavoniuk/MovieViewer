@@ -9,7 +9,7 @@
 import UIKit
 
 class MoviesListViewController: UIViewController, ObservableObjectDelegate, RootView {
-    // MARK: - RootView
+    // Mvar: - RootView
     typealias ViewType = MoviesListView
     
     // MARK: - Outlets
@@ -33,23 +33,35 @@ class MoviesListViewController: UIViewController, ObservableObjectDelegate, Root
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    private func startGetPopularMoviesProvider() {
+    private func startGetPopularMoviesProvider(page: Int = 1) {
         let url = URL(string: NetworkHandler.endpointString(endpoint: .popularMovies)) ?? URL(fileURLWithPath: "")
-        let parameters = [Parameters.apiKey:NetworkHandler.APIKey]
+        let parameters = [Parameters.apiKey:NetworkHandler.APIKey, Parameters.page: String(page)]
         
         self.getPopularMoviesProvider = NetworkJSONProvider(with: url, parameters: parameters)
         self.getPopularMoviesProvider?.delegate = self
         self.getPopularMoviesProvider?.execute()
     }
     
+    private func processMovies() {
+        if self.moviesList != nil {
+            self.getPopularMoviesProvider?.result?.movies.forEach {[weak self] movie in
+                self?.moviesList?.movies.append(movie)
+            }
+            
+            self.moviesList?.page = self.getPopularMoviesProvider?.result?.page ?? 1
+        } else {
+            self.moviesList = getPopularMoviesProvider?.result
+        }
+    }
     
     // MARK: - ObservableObjectDelegate
     func modelWillLoad(observableObject: AnyObject) {
+        
     }
     
     func modelDidLoad(observableObject: AnyObject) {
         if observableObject === self.getPopularMoviesProvider {
-            self.moviesList = getPopularMoviesProvider?.result
+            self.processMovies()
         }
     }
     
@@ -73,5 +85,11 @@ extension MoviesListViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell ?? UICollectionViewCell()
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let moviesList = self.moviesList {
+            if indexPath.row == moviesList.movies.count - 1 {
+                self.startGetPopularMoviesProvider(page: moviesList.page + 1)
+            }
+        }
+    }
 }

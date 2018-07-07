@@ -27,4 +27,5 @@ enum Endpoint: String {
 
 struct Parameters {
     static let apiKey = "api_key"
+    static let page = "page"
 }
