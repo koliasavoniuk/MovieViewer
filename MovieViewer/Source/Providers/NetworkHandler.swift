@@ -23,10 +23,12 @@ struct NetworkHandler {
 
 enum Endpoint: String {
     case popularMovies = "/movie/popular?"
+    case searchMovies = "/search/movie?"
     case posterPath = "https://image.tmdb.org/t/p/w500/"
 }
 
 struct Parameters {
     static let apiKey = "api_key"
     static let page = "page"
+    static let query = "query"
 }

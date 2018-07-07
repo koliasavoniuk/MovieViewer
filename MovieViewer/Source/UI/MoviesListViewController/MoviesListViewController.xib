@@ -33,9 +33,12 @@
                         <constraint firstAttribute="width" constant="50" id="8q1-4x-ljF"/>
                     </constraints>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onSearchButton:" destination="-1" eventType="touchUpInside" id="tZV-be-8Ni"/>
+                    </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iZd-e7-MUE">
-                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ebp-Ca-lsA">
                         <size key="itemSize" width="50" height="50"/>
@@ -48,26 +51,41 @@
                         <outlet property="delegate" destination="-1" id="VOc-Py-ChF"/>
                     </connections>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eME-Is-KHI">
+                    <rect key="frame" x="10" y="65" width="355" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="i5A-aC-AUY"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onPopularFilmsButton:" destination="-1" eventType="touchUpInside" id="Ok2-l5-taX"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="iZd-e7-MUE" firstAttribute="top" secondItem="eME-Is-KHI" secondAttribute="bottom" constant="5" id="1v4-hC-QhE"/>
                 <constraint firstItem="E2g-BB-hLd" firstAttribute="height" secondItem="6pT-oR-sp1" secondAttribute="height" id="52K-ff-Jn6"/>
                 <constraint firstItem="6pT-oR-sp1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5hb-PM-HvQ"/>
                 <constraint firstItem="E2g-BB-hLd" firstAttribute="leading" secondItem="6pT-oR-sp1" secondAttribute="trailing" id="HmE-O9-wfk"/>
+                <constraint firstItem="E2g-BB-hLd" firstAttribute="trailing" secondItem="eME-Is-KHI" secondAttribute="trailing" id="Idm-rH-GwJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iZd-e7-MUE" secondAttribute="bottom" id="LgA-jd-sY6"/>
-                <constraint firstItem="iZd-e7-MUE" firstAttribute="top" secondItem="6pT-oR-sp1" secondAttribute="bottom" id="eF5-Pa-kv3"/>
+                <constraint firstItem="E2g-BB-hLd" firstAttribute="centerY" secondItem="6pT-oR-sp1" secondAttribute="centerY" id="e3W-nD-LgE"/>
                 <constraint firstItem="6pT-oR-sp1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="gUg-66-HLx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iZd-e7-MUE" secondAttribute="trailing" id="j22-sN-Ply"/>
                 <constraint firstItem="iZd-e7-MUE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kqH-p1-xwY"/>
-                <constraint firstItem="E2g-BB-hLd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lZI-zN-9UX"/>
+                <constraint firstItem="eME-Is-KHI" firstAttribute="leading" secondItem="6pT-oR-sp1" secondAttribute="leading" id="pxS-26-cqS"/>
+                <constraint firstItem="eME-Is-KHI" firstAttribute="top" secondItem="6pT-oR-sp1" secondAttribute="bottom" constant="5" id="yYX-Pv-Mny"/>
                 <constraint firstAttribute="trailing" secondItem="E2g-BB-hLd" secondAttribute="trailing" constant="10" id="yf3-sj-w6A"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>
                 <outlet property="collectionView" destination="iZd-e7-MUE" id="dZY-tm-zhK"/>
-                <outlet property="findButton" destination="E2g-BB-hLd" id="p8Q-DX-QQQ"/>
-                <outlet property="findTextField" destination="6pT-oR-sp1" id="dAk-jM-bfI"/>
+                <outlet property="popularFilmsButton" destination="eME-Is-KHI" id="Han-rW-ZKh"/>
+                <outlet property="searchButton" destination="E2g-BB-hLd" id="oZd-V3-ubG"/>
+                <outlet property="searchTextField" destination="6pT-oR-sp1" id="KjE-ye-I6R"/>
             </connections>
+            <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
 </document>

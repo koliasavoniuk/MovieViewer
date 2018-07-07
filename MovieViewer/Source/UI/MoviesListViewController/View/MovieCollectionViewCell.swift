@@ -19,8 +19,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
 
     func fill(with model: Movie) {
-        let posterURL = URL(string: Endpoint.posterPath.rawValue + model.posterPath) ?? URL(fileURLWithPath: "")
         self.filmNameLabel.text = model.title
+        
+        let posterURL = URL(string: Endpoint.posterPath.rawValue + model.posterPath) ?? URL(fileURLWithPath: "")
         self.posterImageView.sd_setImage(with: posterURL,
                                          placeholderImage: nil,
                                          options: .highPriority,

@@ -11,7 +11,8 @@ import Foundation
 // MARK: - UI Titles
 
 enum UITitles: String {
-    case findButton = "Find"
+    case searchButton = "Search"
+    case popularFilmsButton = "Show popular films"
     case textFieldPlaceholder = "Enter film name here"
 }
 
@@ -19,5 +20,7 @@ enum UITitles: String {
 
 enum Strings: String {
     case cannot_parse_json = "Cannot parse JSON"
-    case whoops = "Whoops, something went wrong"
+    case whoops = "Whoops"
+    case emptyTextField = "Text field cannot be empty"
+    case ok = "OK"
 }
